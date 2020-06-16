@@ -1,6 +1,6 @@
 import math
 
-def main():
+def Main():
     print("What problem do you want to solve?")
     print("1. Floatation.")
     print("2. Springs.")
@@ -14,19 +14,15 @@ def main():
         else:
             print("Insert a valid option [1] or [2].")
 
-    Program(program)
-
     
-def Program(i):
-    if (i == 1):
+    if (program == 1):
         ProgramOne()
-    elif (i == 2):
-        ProgramTwo()
-        
+    elif (program == 2):
+        ProgramTwo()       
 
 
 def ProgramOne():
-    gravity = float(input("Insert the desired gravity: "))
+    gravity = float(input("Insert the desired gravity (negative): "))
     fluidDensity = float(input("Insert the desired fluid density: "))
     objectDensity = float(input("Insert the desired object density: "))
     objectVolume = float(input("Insert the desired object volume: "))
@@ -41,12 +37,15 @@ def ProgramOne():
         print("\nThe object has {:.2f} mass, {:.2f} density and {:.2f} volume.".format(objectMass, objectDensity, objectVolume))
         print("The fluid has a density of {:.2f} and the gravity force is {:.2f}.".format(fluidDensity, gravity))
         print("The object would float at {:.2f} with these conditions.\n".format(objectHeightImmersed))
-        print("You can change the initial values with 'set [property] [value]'.")
+        print("You can change the initial values with 'set [property] [value]' or 'exit' the program.")
         print("[property] can be 'gravity', 'fluid density', 'density', 'volume' or 'mass'.")
 
-        userIn = input().split()
+        userIn = input().lower().split()
 
-        if (userIn[0] == "set"):
+        if (userIn[0] == "exit"):
+            break
+
+        elif (userIn[0] == "set"):
             if (userIn[1] == "gravity"):
                 gravity = float(userIn[2])
 
@@ -96,7 +95,7 @@ def ProgramOne():
 
 
 def ProgramTwo():
-    gravity = float(input("Insert the desired gravity: "))
+    gravity = float(input("Insert the desired gravity (negative): "))
     objectMass = float(input("Insert the desired object mass: "))
     baseLength = float(input("Insert the desired base spring length: "))
     springConst = float(input("Insert the desired spring constant: "))
@@ -108,12 +107,15 @@ def ProgramTwo():
         print("\nThe object has {:.2f} mass and the gravity is {:.2f}.".format(objectMass, gravity))
         print("The base spring length is {:.2f} and it's constant is {:.2f}.".format(baseLength, springConst))
         print("The spring would stretch to {:.2f} meters.\n".format(stretchedLength))
-        print("You can change the initial values with 'set [property] [value]'.")
+        print("You can change the initial values with 'set [property] [value]' or 'exit' the program.")
         print("[property] can be 'gravity', 'mass', 'length' or 'constant'.")
 
-        userIn = input().split()
+        userIn = input().lower().split()
 
-        if (userIn[0] == "set"):
+        if (userIn[0] == "exit"):
+            break
+
+        elif (userIn[0] == "set"):
             if (userIn[1] == "gravity"):
                 gravity = float(userIn[2])
             
@@ -127,4 +129,4 @@ def ProgramTwo():
                 springConst = float(userIn[2])
 
 
-main()
+Main()
