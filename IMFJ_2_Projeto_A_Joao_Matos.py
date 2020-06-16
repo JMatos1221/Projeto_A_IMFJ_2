@@ -36,7 +36,7 @@ def ProgramOne():
     while(True):
         print("\nThe object has {:.2f} mass, {:.2f} density and {:.2f} volume.".format(objectMass, objectDensity, objectVolume))
         print("The fluid has a density of {:.2f} and the gravity force is {:.2f}.".format(fluidDensity, gravity))
-        print("The object would float at {:.2f} with these conditions.\n".format(objectHeightImmersed))
+        print("The object would float at {:.2f} meters with these conditions.\n".format(objectHeightImmersed))
         print("You can change the initial values with 'set [property] [value]' or 'exit' the program.")
         print("[property] can be 'gravity', 'fluid density', 'density', 'volume' or 'mass'.")
 
